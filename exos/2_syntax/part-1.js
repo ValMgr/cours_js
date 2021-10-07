@@ -13,8 +13,9 @@ console.log('--- 2 ---');
 // logguer cette variable dans la console avec console.log()
 console.log(x)
 
-console.log('--- 3 ---');
-/*
+// [2] logguer cette variable dans la console avec console.log()
+
+/* [3]
   logguer chacune des valeurs de "speeds" dans la console
   en utilisant une boucle for.
 */
@@ -23,8 +24,7 @@ for (let i = 0; i < speeds.length; i++) {
   console.log(speeds[i])
 }
 
-console.log('--- 4 ---');
-/*
+/* [4]
   créer une fonction 'moins5' qui en entrée prend un nombre et renvoie le nombre moins 5
   puis logguez le résultat de la fonction 'moins5' appliquée sur x.
 */
@@ -40,9 +40,9 @@ console.log('--- 5 ---');
 speeds.forEach(s => { if(moins5(s) > 130) console.log('Vous allez trop vite :', moins5(s)); });
 
 console.log('');
-console.log('--- Merci de réinitialiser votre mot de passe ---');
-console.log('--- 1 ---');
-/*
+console.log('> Merci de réinitialiser votre mot de passe');
+
+/* [1]
   créer une fonction 'getNumber' qui en entrée prend un nombre et renvoie un nombre entier aléatoire
   entre 0 et ce nombre (ex: si on lui passe 4, on veut récupérer, 0, 1, 2 ou 3, au hasard).
   Logguer le résultat de la fonction random appliquée sur x.
@@ -65,7 +65,7 @@ console.log('--- 3 ---');
 /*
   créer une fonction 'makePassword' qui en entrée prend un nombre 'size' et renvoie un mot de cette longueur
   construit avec des lettres au hasard.
-  Utiliser la fonction 'getNumber', 'getLetter' ainsi qu'une boucle if.
+  Utiliser la fonction 'getLetter' ainsi qu'une boucle for.
 */
 function makePassword(size){
   let r = "";
@@ -96,9 +96,9 @@ function makeStrongerPassword(size, withNumber){
 }
 console.log(makeStrongerPassword(15, true));
 console.log('');
-console.log('--- Dis bonjour à mamie ---');
-console.log('--- 1 ---');
-/*
+console.log('> Dis bonjour à mamie');
+
+/* [1]
   créer une fonction 'bonjour' qui prend un 'name' en entrée
   et qui renvoie une chaine de caractère de type Bonjour personnalisé (ex: Bonjour Romain).
   Utiliser cette fonction avec votre prénom en logguant son résultat

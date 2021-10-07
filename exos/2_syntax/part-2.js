@@ -5,9 +5,8 @@
 console.log('');
 console.log('--- PARTIE 2 ---');
 console.log('');
-console.log('--- Ça va boucler sévère ! ---');
-console.log('--- 1 ---');
-/*
+console.log('> Ça va boucler sévère !');
+/* [1]
   créer une fonction 'x10' qui prend un nombre en entrée et renvoie ce nombre multiplié par 10.
 */
 function x10(input) {
@@ -52,8 +51,7 @@ console.log('--- 3-bis ---');
 const h100_2 = nombres.filter(n => n > 100);
 console.log(h100_2);
 
-console.log('--- 4 ---');
-/*
+/* [4]
   à partir de "nombres", créer un nouveau tableau avec seulement les entiers pairs
   en utilisant .filter()
 */
@@ -84,10 +82,10 @@ console.log('--- 7 ---');
 const longueurs = couleurs.map(c => getLength(c));
 console.log(longueurs)
 console.log('');
-console.log("--- Si t'en as marre, c'est normal, c'est la fin ---");
-console.log('--- 1 ---');
-/*
-ajouter 2 ou 3 nouvelles personnes au tableau "personnes", en utilisant .push()
+console.log("> Si t'en as marre, c'est normal, c'est la fin");
+
+/* [1]
+  ajouter 2 ou 3 nouvelles personnes au tableau "personnes", en utilisant .push()
 */
 const personnes = [{ nom: 'Romain', date: '1985-12-31' }];
 personnes.push({ nom: 'Valentin', date: '2000-11-11' });
@@ -96,15 +94,13 @@ personnes.push({ nom: 'George', date: '1885-11-11' });
 personnes.push({ nom: 'John', date: '2000-10-01'})
 console.log(personnes)
 
-console.log('--- 2 ---');
-/*
+/* [2]
   à partir de "personnes", créer un nouveau tableau contenant seulement les noms en utilisant .map()
 */
 const names = personnes.map(p => p.nom);
 console.log(names)
 
-console.log('--- 3 ---');
-/*
+/* [3]
   créer une fonction "calculerAge" qui en entrée prend un string représentant la date de naissance
   et renvoie l'âge en nombre, en utilisant Date()
 */

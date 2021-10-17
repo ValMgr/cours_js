@@ -5,7 +5,7 @@
  * 
  */
 
-const toReach = new Date('11-11-2021 12:00:00');
+const toReach = new Date('11-11-2021 00:00:00');
 const now = new Date();
 
 const MILLISECONDS = 1,
@@ -19,8 +19,6 @@ const delta = toReach - now;
 let timeLeft, timer;
 if (delta > 0) {
     timeLeft = SplitTime(delta);
-    console.log(timeLeft)
-
     timer = setInterval(Countdown, 10);
 }
 else {
@@ -40,20 +38,20 @@ function Countdown() {
     }
     else if (timeLeft.minutes !== 0) {
         timeLeft.minutes--;
-        timeLeft.seconds = SECONDS - 1;
+        timeLeft.seconds = 59;
         timeLeft.milliseconds = 99;
     }
     else if (timeLeft.hours !== 0) {
         timeLeft.hours--;
-        timeLeft.minutes = MINUTES - 1;
-        timeLeft.seconds = SECONDS - 1;
+        timeLeft.minutes = 59;
+        timeLeft.seconds = 59;
         timeLeft.milliseconds = 99;
     }
     else if (timeLeft.days !== 0) {
         timeLeft.days--;
-        timeLeft.hours = HOURS - 1;
-        timeLeft.minutes = MINUTES - 1;
-        timeLeft.seconds = SECONDS - 1;
+        timeLeft.hours = 23;
+        timeLeft.minutes = 59;
+        timeLeft.seconds = 59;
         timeLeft.milliseconds = 99;
     }
     else {
@@ -64,7 +62,6 @@ function Countdown() {
         clearInterval(timer);
         console.log('Time reached !');
     }
-
     PrintTime(timeLeft)
 }
 
@@ -81,12 +78,6 @@ function SplitTime(delta) {
     const h = Math.floor((delta % DAYS) / HOURS);
     const m = Math.floor((delta % HOURS) / MINUTES);
     const s = Math.floor((delta % MINUTES) / SECONDS);
-    const ms = Math.round(delta % SECONDS / 10);
+    const ms = Math.round((delta % SECONDS) / 10);
     return { days: d, hours: h, minutes: m, seconds: s, milliseconds: ms }
 }
-
-
-
-
-
-

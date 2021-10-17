@@ -1,7 +1,7 @@
 'use strict';
 
 // # 4_Browser
-
+const body = document.body;
 /* Exercice 1: Couleurs
     - Créer une <div> pour chaque couleur, avec la class 'color'
     - L'ajouter à l'élément de la page qui a l'id 'exo1'
@@ -21,6 +21,23 @@ const colors = [
   'purple',
 ];
 
+function exo1() {
+  const exo1 = document.createElement('section');
+  exo1.setAttribute('id', 'exo1');
+  body.append(exo1);
+  colors.forEach((c, i) => {
+    const e = document.createElement('div');
+    e.textContent = `${i}. ${c}`;
+    e.style.backgroundColor = c;
+    if (c === 'black') e.style.color = "white";
+    e.addEventListener('click', function () {
+      body.style.backgroundColor = c;
+    });
+    exo1.append(e);
+  });
+}
+exo1();
+
 // -------------------------------
 
 /* Exercice 2: Taille
@@ -29,6 +46,20 @@ const colors = [
     - Lui ajouter un listener au mousemove, qui change sa largeur
     en fonction de la position en Y de la souris à l'écran (event.clientY)
 */
+
+function exo2() {
+  const exo2 = document.createElement('section');
+  exo2.setAttribute('id', 'exo2');
+  body.append(exo2);
+
+  const square = document.createElement('div');
+  square.classList.add('square');
+  square.addEventListener('mousemove', function (e) {
+    square.style.height = (e.clientY - 50) + "px";
+  });
+  exo2.append(square);
+}
+exo2();
 
 // -------------------------------
 
@@ -42,6 +73,47 @@ const colors = [
     pour recharger la page avec le bon nombre de points dès le début
 */
 
+let isClock = true;
+let clock;
+
+function exo3() {
+  if(!isClock) isClock = true;
+  const exo3 = document.createElement('section');
+  exo3.setAttribute('id', 'exo3');
+  body.append(exo3);
+
+  const nb = document.createElement('div');
+  nb.classList.add('nb');
+
+  const dots = document.createElement('div');
+  dots.classList.add('dots');
+
+  function initDots() {
+    if (localStorage.getItem('dots')) {
+      for (let i = 0; i < localStorage.getItem('dots'); i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        dots.append(dot);
+        nb.textContent = localStorage.getItem('dots');
+      }
+    }
+  }
+
+  initDots();
+  clock = setInterval(() => {
+    if (isClock) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      dots.append(dot);
+      nb.textContent = dots.querySelectorAll('.dot').length;
+      localStorage.setItem('dots', nb.textContent);
+    }
+  }, 1000);
+
+  exo3.append(nb, dots);
+}
+exo3();
+
 // -------------------------------
 
 /* Exercice 4: Contrôle au clavier
@@ -51,6 +123,47 @@ const colors = [
     - Exécuter chacun des 3 premiers exercices lorsque la page est vide en appuyant sur ENTER
     - Faire en sorte de d'arrêter le timer quand on appuie sur S, et de le relancer en réappuyant
 */
+
+const exo4 = document.createElement('section');
+exo4.setAttribute('id', 'exo4');
+
+
+document.addEventListener('keydown', (e) => {
+  // console.log(e)
+  if (colors[e.key] !== undefined) {
+    body.style.backgroundColor = colors[e.key];
+  }
+  else if (e.key === "r" && (e.metaKey || e.ctrlKey)) {
+    e.preventDefault();
+    isClock = false;
+    clearInterval(clock);
+    document.querySelectorAll('section').forEach(s => s.remove());
+  }
+  else if (e.key === "Enter") {
+    if (!document.querySelector('#exo1')) {
+      exo1();
+    } else if (!document.querySelector('#exo2')) {
+      exo2();
+    } else if (!document.querySelector('#exo3')) {
+      exo3();
+    } else if (!document.querySelector('#exo5')) {
+      exo5();
+    }
+  }
+  else if (e.key === "s") {
+    isClock ? isClock = false : isClock = true;
+    isClock ? document.querySelector('.nb').style.color = 'green' : document.querySelector('.nb').style.color = 'red';
+  }
+  else if (e.key === 'z' && (e.metaKey || e.ctrlKey)) {
+    isClock = false;
+    document.querySelectorAll('.dot').forEach(d => d.remove());
+    localStorage.removeItem('dots');
+    isClock = true;
+  }
+});
+
+
+
 
 // -------------------------------
 
@@ -91,3 +204,50 @@ const characters = [
     src: 'static/Dumbledore_and_Elder_Wand.jpeg',
   },
 ];
+
+function exo5() {
+  const exo5 = document.createElement('section');
+  exo5.setAttribute('id', 'exo5');
+  body.append(exo5);
+  localStorage.getItem('character')
+
+  if (localStorage.getItem('character') !== null) {
+    createCharacter({
+      name: localStorage.getItem('character').split(',')[0],
+      src: localStorage.getItem('character').split(',')[1],
+    });
+  }
+  else {
+    createCharacter(characters[0]);
+  }
+}
+
+function createCharacter(c) {
+  const card = document.createElement('div');
+  card.classList.add('character')
+  const name = document.createElement('p');
+  name.classList.add('name');
+  name.textContent = c.name;
+  card.append(name);
+  const img = document.createElement('img');
+  img.setAttribute('src', c.src);
+  card.append(img);
+  document.querySelector('#exo5').append(card);
+  localStorage.setItem('character', [c.name, c.src]);
+
+  card.addEventListener('click', () => {
+    let newChar = newP();
+    while (newChar.name === c.name) {
+      newChar = newP();
+    }
+    card.remove();
+    createCharacter(newChar);
+  });
+}
+
+function newP() {
+  const id = Math.floor(Math.random() * characters.length);
+  return characters[id];
+}
+
+exo5();

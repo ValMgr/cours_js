@@ -13,11 +13,24 @@ section {
   flex-flow: column;
   align-items: center;
   overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+#exo1 div{
+  padding: 1em;
 }
 
 .color {
   padding: 1rem;
   border: 1px solid black;
+}
+
+.square{
+  display: block;
+  background-color: black;
+  height: 100px;
+  width: 100px;
 }
 
 .dots {
@@ -59,4 +72,8 @@ section {
 .character img {
   object-fit: contain;
   width: 100%;
+}
+
+.nb{
+  color: green;
 }

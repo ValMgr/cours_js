@@ -10,6 +10,12 @@ body {
   font-family: 'Shadows Into Light', cursive;
 }
 
+#status{
+  font-size: 2vw;
+  font-family: 'Roboto';
+  transition: .35s ease;
+}
+
 .countdown {
   display: flex;
   gap: 5rem;

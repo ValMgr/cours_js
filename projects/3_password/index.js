@@ -12,41 +12,41 @@ document.querySelector('#generate').addEventListener('click', () => getParams())
 document.querySelector('#i1').addEventListener('input', () => { document.querySelector('#i1-indicator').innerText = document.querySelector('#i1').value })
 
 const char = "abcdefghijklmnopqrstuvwxyz";
-const caps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const caps = char.toUpperCase();
 const special = '?!$&@#ù';
 
 
 function getParams() {
     const char = parseInt(document.querySelector('#i1').value);
     const functions = [getChar];
-    if(document.querySelector('#i2').checked) functions.push(getNumber);
-    if(document.querySelector('#i3').checked) functions.push(getCaps);
-    if(document.querySelector('#i4').checked) functions.push(getSpecialChar);
+    if (document.querySelector('#i2').checked) functions.push(getNumber);
+    if (document.querySelector('#i3').checked) functions.push(getCaps);
+    if (document.querySelector('#i4').checked) functions.push(getSpecialChar);
     PassGen(char, functions);
 }
 
 
 function PassGen(nbr, fn) {
-    let pwd = ""; 
-    for (let i=0;i<nbr;i++) {
+    let pwd = "";
+    for (let i = 0; i < nbr; i++) {
         let r = Math.floor(Math.random() * fn.length);
         pwd += fn[r]();
     }
     document.querySelector('#result').innerText = pwd;
 }
 
-function getChar(){
+function getChar() {
     return char[Math.floor(Math.random() * char.length)];
 }
 
-function getCaps(){
+function getCaps() {
     return caps[Math.floor(Math.random() * caps.length)];
 }
 
-function getNumber(){
+function getNumber() {
     return Math.floor(Math.random() * 10);
 }
 
-function getSpecialChar(){
+function getSpecialChar() {
     return special[Math.floor(Math.random() * special.length)];
 }

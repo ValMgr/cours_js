@@ -7,9 +7,9 @@
 
 const toReach = new Date('11-11-2021 00:00:00');
 const now = new Date();
-const log = document.createElement('h1');
-log.id = "status";
-document.body.prepend(log)
+const logElement = document.createElement('h1');
+logElement.id = "status";
+document.body.prepend(logElement);
 
 const MILLISECONDS = 1,
     SECONDS = 1000 * MILLISECONDS,
@@ -17,7 +17,6 @@ const MILLISECONDS = 1,
     HOURS = 60 * MINUTES,
     DAYS = 24 * HOURS
 
-const logElement = document.querySelector('#status')
 const delta = toReach - now;
 let timeLeft, timer;
 if (delta > 0) {

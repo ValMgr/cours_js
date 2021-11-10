@@ -57,8 +57,8 @@ function Countdown() {
         timeLeft.milliseconds = 99;
     }
     else {
-        logElement.style.fontSize = '10vw';
-        logElement.innerText = 'Time reached !';
+        logElement.style.fontSize = '5vw';
+        logElement.innerText = 'Time reached ! (bon anniv)';
         logElement.style.color = 'green';
         document.querySelector('.countdown').classList.remove('displayed');
         clearInterval(timer);

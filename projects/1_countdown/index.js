@@ -7,6 +7,9 @@
 
 const toReach = new Date('11-11-2021 00:00:00');
 const now = new Date();
+const log = document.createElement('h1');
+log.id = "status";
+document.body.prepend(log)
 
 const MILLISECONDS = 1,
     SECONDS = 1000 * MILLISECONDS,
@@ -67,10 +70,10 @@ function Countdown() {
 
 function PrintTime(t) {
     document.querySelector('#days').innerText = t.days;
-    document.querySelector('#hours').innerText = t.hours;
-    document.querySelector('#minutes').innerText = t.minutes;
-    document.querySelector('#seconds').innerText = t.seconds;
-    document.querySelector('#millis').innerText = t.milliseconds;
+    document.querySelector('#hours').innerText = String(t.hours).padStart(2, "0");
+    document.querySelector('#minutes').innerText = String(t.minutes).padStart(2, "0");
+    document.querySelector('#seconds').innerText = String(t.seconds).padStart(2, "0");
+    document.querySelector('#millis').innerText = String(t.milliseconds).padStart(2, "0");
 }
 
 function SplitTime(delta) {

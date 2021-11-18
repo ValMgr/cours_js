@@ -8,6 +8,8 @@
   Utiliser setTimeout().
   */
 
+  
+
 // Question 2
 /* Consommer la Promesse de 1) pour
   - afficher le nombre renvoyé quand elle résoud

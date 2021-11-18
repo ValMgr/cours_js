@@ -9,11 +9,11 @@
  *   */
 
 document.querySelector('#generate').addEventListener('click', () => getParams());
-document.querySelector('#i1').addEventListener('input', () => { document.querySelector('#i1-indicator').innerText = document.querySelector('#i1').value })
+document.querySelector('#i1').addEventListener('input', e => { document.querySelector('#i1-indicator').innerText = e.target.value })
 
 const char = "abcdefghijklmnopqrstuvwxyz";
 const caps = char.toUpperCase();
-const special = '?!$&@#ù';
+const special = '?!$&@#ù({})';
 
 
 function getParams() {

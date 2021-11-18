@@ -5,7 +5,7 @@
  * 
  */
 
-const toReach = new Date('11-11-2021 00:00:00');
+const toReach = new Date('2021-12-25T00:00:00');
 const now = new Date();
 const logElement = document.createElement('h1');
 logElement.id = "status";
@@ -58,7 +58,7 @@ function Countdown() {
     }
     else {
         logElement.style.fontSize = '5vw';
-        logElement.innerText = 'Time reached ! (bon anniv)';
+        logElement.innerText = 'Joyeux Noël';
         logElement.style.color = 'green';
         document.querySelector('.countdown').classList.remove('displayed');
         clearInterval(timer);

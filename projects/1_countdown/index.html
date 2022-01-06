@@ -1,53 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
 
-    <meta description="Projet À rebours" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="utf-8" />
 
-    <link
-      rel="stylesheet"
-      href="https://necolas.github.io/normalize.css/latest/normalize.css"
-    />
-    <link rel="stylesheet" href="../../styles/reset.css" />
-    <link rel="stylesheet" href="./style.css" />
+  <meta description="Projet À rebours" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <script type="module" src="./index.js" defer></script>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" />
+  <link rel="stylesheet" href="../../styles/reset.css" />
+  <link rel="stylesheet" href="./style.css" />
 
-    <title>Compte à rebours</title>
-  </head>
+  <script type="module" src="./index.js" defer></script>
 
-  <body>
-    <div class="countdown displayed">
+  <title>Compte à rebours</title>
+</head>
+
+<body>
+  <div class="countdown displayed">
+    <div class="digits">
+      <div id="days">000</div>
+      <div class="label">jours</div>
+    </div>
+    <div class="colon">-</div>
+
+    <div class="time">
       <div class="digits">
-        <div id="days">000</div>
-        <div class="label">jours</div>
+        <div id="hours">00</div>
+        <div class="label">heures</div>
       </div>
-      <div class="colon">-</div>
+      <div class="colon">:</div>
 
-      <div class="time">
-        <div class="digits">
-          <div id="hours">00</div>
-          <div class="label">heures</div>
-        </div>
-        <div class="colon">:</div>
-
-        <div class="digits">
-          <div id="minutes">00</div>
-          <div class="label">minutes</div>
-        </div>
-        <div class="colon">:</div>
-        <div class="digits">
-          <div id="seconds">00</div>
-          <div class="label">secondes</div>
-        </div>
-        <div class="colon">:</div>
-        <div class="digits">
-          <div id="millis">00</div>
-          <div class="label">millisecondes</div>
-        </div>
+      <div class="digits">
+        <div id="minutes">00</div>
+        <div class="label">minutes</div>
+      </div>
+      <div class="colon">:</div>
+      <div class="digits">
+        <div id="seconds">00</div>
+        <div class="label">secondes</div>
+      </div>
+      <div class="colon">:</div>
+      <div class="digits">
+        <div id="millis">00</div>
+        <div class="label">millisecondes</div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

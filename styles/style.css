@@ -1,9 +1,105 @@
 body {
   height: 100vh;
+  background-color: rgb(41, 44, 61);
+  color: #FFF;
 }
 
 h1 {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
+}
+
+button{
+  border-radius: 10px;
+  padding: 0.5em 1em;
+  color: #FFF !important;
+  border: none;
+  box-shadow: none;
+  margin: 0 0.5em;
+}
+
+.filter__btn{
+  background-color: rgb(16, 87, 153);
+}
+
+.toggleTrack{
+  background-color: rgb(85, 12, 170);
+}
+
+.tweet__list{
+  padding: 2em;
+}
+
+.pp{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+
+.tweet__card{
+  max-width: 500px;
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: rgb(39, 115, 177);
+  border-radius: 10px;
+  transform-origin: top left;
+  position: relative;
+}
+
+.filter__authors{
+  background-color: rgb(66, 104, 28);
+  margin-bottom: 0.5em;
+  margin-top: 2em;
+}
+
+.tweet__title{
+  font-weight: bolder;
+  text-decoration: underline;
+  font-size: 1.2em;
+  width: 100%;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.tweet__title span{
+  text-decoration: none;
+  margin-left: auto;
+}
+
+.lang{
+  text-transform: uppercase;
+  margin-right: 10px;
+  background-color: rgb(22, 67, 190);
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  left: 35px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.tweet__card.fav{
+  background-color: rgb(66, 38, 144);
+}
+
+.fav .tweet__fav{
+  background-color: rgba(175, 11, 153, 0.315);
+}
+
+.tweet__fav{
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: rgb(175, 11, 153);
+  padding: 6px;
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+  width: 30px;
+  text-align: center;
+  height: 30px;
 }

@@ -26,6 +26,7 @@
 
 import initSearchBar from "./modules/searchBar.js";
 import initTodo from "./modules/toDo.js";
+import createElement from "./modules/createElements.js";
 
 function docReady(fn) {
     if (document.readyState === "complete" || document.readyState === "interactive") {
@@ -37,6 +38,9 @@ function docReady(fn) {
 
 docReady(async () => {
     const searchBar = initSearchBar();
+    const addBtn = createElement('button', ['btn', 'btn-primary', 'mt-2'], 'addBtn', 'Add');
+    searchBar.append(addBtn)
     const todo = initTodo()
+    todo.style.marginTop = '10vh';
 });
 

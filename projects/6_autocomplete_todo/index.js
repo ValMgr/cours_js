@@ -1,7 +1,7 @@
 // ## Autocomplete + Todo
 // Faire un autocomplete sur l’api geo, avec un Todo
 // - Chercher des adresses ✅
-// - Quand on sélectionne un adresse, ca la rajoute à la liste de TODO
+// - Quand on sélectionne un adresse, ca la rajoute à la liste de TODO ✅
 // - On peut compléter un TODO
 // - On peut supprimer un TODO
 // - On peut choisir de n’afficher que les TODO non complétés
@@ -25,7 +25,8 @@
 "use strict";
 
 import initSearchBar from "./modules/searchBar.js";
-import initTodo from "./modules/toDo.js";
+import initFilter from "./modules/createFilter.js";
+import {initTodo, addItem, removeItem} from "./modules/toDo.js";
 import createElement from "./modules/createElements.js";
 
 function docReady(fn) {
@@ -37,10 +38,23 @@ function docReady(fn) {
 }
 
 docReady(async () => {
+    // Create searchbar
     const searchBar = initSearchBar();
     const addBtn = createElement('button', ['btn', 'btn-primary', 'mt-2'], 'addBtn', 'Add');
-    searchBar.append(addBtn)
-    const todo = initTodo()
-    todo.style.marginTop = '10vh';
+    searchBar.parentElement.parentElement.append(addBtn);
+    addBtn.addEventListener('click', addAddress);
+    
+    // Create Todo
+    const todo = initTodo();
+    const filter = initFilter(todo);
+    todo.parentNode.children[0].append(filter);
+    todo.parentElement.style.marginTop = '10vh';
+
+    function addAddress() {
+        const task = addItem(searchBar.value);
+        todo.append(task)
+        searchBar.value = "";
+    }
+
 });
 

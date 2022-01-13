@@ -10,7 +10,7 @@ let suggestList = null;
 export default function initSearchBar(parent = document.body) {
     const wrapper = createElement('div', ['container']);
     const formGroup = createElement('div', ['form-group', 'position-relative'], 'searchBar_parent');
-    const label = createElement('label', ['mb-2'], 'searchBar_label', 'Adresse');
+    const label = createElement('label', ['mb-2'], 'searchBar_label', 'Address');
     const searchBar = createElement('input', ['form-control'], 'searchbar');
 
     searchBar.addEventListener('input', autoComplete);
@@ -19,7 +19,7 @@ export default function initSearchBar(parent = document.body) {
     formGroup.append(label);
     formGroup.append(searchBar);
     parent.append(wrapper);
-    return wrapper;
+    return searchBar;
 }
 
 async function autoComplete(e) {
@@ -42,7 +42,7 @@ async function autoComplete(e) {
 
 function noSuggest() {
     const element = createElement('div', ['suggestion', 'dropdown-item'], 'no-result');
-    element.innerText = 'Aucun résultats.';
+    element.innerText = 'No results.';
     return element;
 }
 

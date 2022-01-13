@@ -8,3 +8,34 @@ body{
     min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
 }
+
+.todo-item{
+    color: red;
+    border-bottom: 1px solid rgb(34, 34, 34);
+    padding: 0.5em 0;
+}
+
+.todo-title{
+    max-width: 60%;
+}
+
+.todo-item.complete{
+    color: green;
+}
+
+.fas{
+    color: #FFF;
+}
+
+#todo_title{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+ul{
+    min-height: 10vh;
+    background-color: rgb(236, 236, 236);
+    border-radius: 15px;
+    padding: 1em;
+    margin-bottom: 10vh;
+}
